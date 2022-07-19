@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_list, only: [:new, :create]
+  before_action :set_list, only: [:new, :create, :destroy]
 
   def new
     @bookmark = Bookmark.new
@@ -29,7 +29,7 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:bookmark).permit(:movie, :comment)
+    params.require(:bookmark).permit(:movie_id, :comment, :list_id)
   end
 
 end

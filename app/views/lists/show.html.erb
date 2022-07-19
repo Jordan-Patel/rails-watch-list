@@ -1,15 +1,22 @@
 <div class="container">
   <h1><%= @list.name %></h1>
-
-  <% @bookmarks.each do |movie| %>
-    <div class="card movie-card">
-      <%= link_to movie.title, movie.poster_url, class:"card-img-top" %>
-      <div class="card-body">
-        <h5 class="card-title"><%= movie.title %></h5>
-        <p class="card-text"><%= movie.overview %></p>
+  <div class="row">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="col-6">
+        <div class="card h-100">
+          <%= link_to image_tag(bookmark.movie.poster_url), bookmark.movie.title, class:"card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-subtitle"><%= bookmark.movie.title %></h5>
+            <p class="card-text"><%= bookmark.movie.overview %></p>
+          </div>
+          <div class="footer">
+            <h5 class="card-title"><%= bookmark.comment %></h5>
+            <%= link_to "Delete", [@list, bookmark], method: :delete,  data: { confirm: "Are you sure?" }, class: "card-link text-danger" %>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
 
   <%= link_to 'Back', lists_path %> |
