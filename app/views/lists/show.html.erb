@@ -1,24 +1,27 @@
 <div class="container">
-  <h1><%= @list.name %></h1>
+  <div class="list-image p-5 text-center my-3"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
+    <h1><%= @list.name %></h1>
+  </div>
   <div class="row">
     <% @bookmarks.each do |bookmark| %>
-      <div class="col-6">
-        <div class="card h-100">
-          <%= link_to image_tag(bookmark.movie.poster_url), bookmark.movie.title, class:"card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-subtitle"><%= bookmark.movie.title %></h5>
-            <p class="card-text"><%= bookmark.movie.overview %></p>
-          </div>
-          <div class="footer">
-            <h5 class="card-title"><%= bookmark.comment %></h5>
-            <%= link_to "Delete", [@list, bookmark], method: :delete,  data: { confirm: "Are you sure?" }, class: "card-link text-danger" %>
-          </div>
+    <div class="col-6 my-2">
+      <div class="card h-100">
+        <%= link_to image_tag(bookmark.movie.poster_url), bookmark.movie.title, class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-subtitle"><%= bookmark.movie.title %></h5>
+          <p class="card-text"><%= bookmark.movie.overview %></p>
+        </div>
+        <div class="footer">
+          <h5 class="card-title"><%= bookmark.comment %></h5>
+          <%= link_to "Delete", [@list, bookmark], method: :delete,  data: { confirm: "Are you sure?" }, class: "card-link text-danger" %>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 
 
-  <%= link_to 'Back', lists_path %> |
+  <%= link_to 'Back', root_path %> |
   <%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
 </div>

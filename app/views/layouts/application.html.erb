@@ -1,54 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsWatchList</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://kit.fontawesome.com/1e4f204f38.js" crossorigin="anonymous"></script>
-  </head>
+<head>
+  <title>RailsWatchList</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://kit.fontawesome.com/1e4f204f38.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
 
   <header>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
-    <div class="container">
-      <a class="navbar-brand" href="#!"><span style="color: #5e9693;">Movie</span><span style="color: #fff;">List</span></a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto ">
-          <li class="nav-item">
-            <%= link_to "My Lists", root_path, class:"nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Create New List", new_list_path, class:"nav-link" %>
-          </li>
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-1">
+      <div class="container">
+        <%= link_to 'MovieList', root_path, class:"navbar-brand " %>
+        <div class="justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto ">
+            <li class="nav-item">
+              <%= link_to "My Lists", root_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Create New List", new_list_path, class:"nav-link" %>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- Navbar -->
-
-  <!--Section: Design Block-->
-  <section>
-    <!-- Intro -->
-    <div id="intro" class="bg-image vh-100" style="
-          background-image: url('https://mdbootstrap.com/img/Photos/new-templates/psychologist/img1.jpg');
-        ">
-      <div class="mask" style="background-color: rgba(250, 182, 162, 0.15);"></div>
-    </div>
-    <!-- Intro -->
-  </section>
-  <!--Section: Design Block-->
-</header>
+    </nav>
+    <!-- Navbar -->
+  </header>
+  <div class="container pt-6">
     <%= yield %>
-  </body>
+  </div>
+</body>
+
 </html>
